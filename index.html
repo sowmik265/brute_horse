@@ -264,12 +264,19 @@
       window.location.href = "https://pay.brutehorse.co/ex-ocu/next-offer/BxjwMGnVRo?accepted=no";
     });
 
-    // Show the purchase card, reject button, and footer after 2:38 minutes (158 seconds)
+    // Show the purchase card and scroll to it after 2:38 minutes
     setTimeout(function () {
-      document.getElementById("purchase-card").style.display = "block";
-      document.getElementById("footer-section").style.display = "block";
-    }, 158000);
-    // 158 seconds = 2 minutes 38 seconds 158000
+      const purchaseCard = document.getElementById("purchase-card");
+      const footerSection = document.getElementById("footer-section");
+
+      purchaseCard.style.display = "block";
+      footerSection.style.display = "block";
+
+      // Scroll smoothly to purchase card
+      const yOffset = -80; // adjust if needed for fixed header
+      const y = purchaseCard.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }, 158000); // 2 min 38 sec
   </script>
 </body>
 
